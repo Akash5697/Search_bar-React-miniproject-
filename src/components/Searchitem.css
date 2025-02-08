@@ -1,0 +1,7 @@
+.Searchitem{
+    padding: 10px 20px;
+}
+
+.Searchitem:hover{
+background-color: #393737;
+}
