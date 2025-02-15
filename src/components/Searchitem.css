@@ -1,7 +1,36 @@
-.Searchitem{
+/* 🌍 Default Styling (Desktop) */
+.Searchitem {
     padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
 }
 
-.Searchitem:hover{
-background-color: #393737;
+/* 🎨 Hover Effect */
+.Searchitem:hover {
+    background-color: #393737;
+    color: white;
+}
+
+/* 📱 Responsive Styling for Tablets (768px and below) */
+@media (max-width: 768px) {
+    .Searchitem {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* 📱 Responsive Styling for Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+    .Searchitem {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+        text-align: center; /* Center text for better UI */
+        width: 100%; /* Ensure it takes full width on small screens */
+    }
+
+    /* ✨ Improve touch experience (no hover on touch screens) */
+    .Searchitem:hover {
+        background-color: #454343;
+    }
 }

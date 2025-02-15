@@ -15,8 +15,10 @@ const Search_bar = ({ setResults }) => {
                         user.name &&
                         user.name.toLowerCase().includes(value);
                 });
+                // console.log(results);
                 setResults(results);
             })
+            
     }
 
     const handelchange = (value) => {
