@@ -5,21 +5,26 @@ import { FaSearch } from "react-icons/fa";
 const Search_bar = ({ setResults }) => {
     const [input, setInput] = useState("");
 
-    const fatchdata = (value) => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then((response) => response.json())
-            .then((json) => {
-                const results = json.filter((user) => {
-                    return value &&
-                        user &&
-                        user.name &&
-                        user.name.toLowerCase().includes(value);
-                });
-                // console.log(results);
-                setResults(results);
-            })
-            
+    const fatchdata = async (value) => {
+    if (!value) {
+        setResults([]); // Clear results if no input
+        return;
     }
+
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        const users = await response.json();
+
+        const filteredResults = users.filter(user =>
+            user?.name?.toLowerCase().includes(value.toLowerCase())
+        );
+
+        setResults(filteredResults);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+};
+
 
     const handelchange = (value) => {
         setInput(value);
